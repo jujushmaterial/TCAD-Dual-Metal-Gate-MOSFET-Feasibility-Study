@@ -38,9 +38,20 @@
     });
   };
 
+  const applyStatusPolicy = () => {
+    const status = document.querySelector('.status');
+    if (!status) return;
+
+    [...status.childNodes].forEach((node) => {
+      if (node.nodeType === Node.TEXT_NODE) node.remove();
+    });
+    status.append(' Complete');
+  };
+
   const applyPageText = () => {
     applyProjectSummary();
     applyResourceLabels();
+    applyStatusPolicy();
   };
 
   applyPageText();
