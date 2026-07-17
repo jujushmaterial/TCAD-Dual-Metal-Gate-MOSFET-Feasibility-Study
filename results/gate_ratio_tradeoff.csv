@@ -1,0 +1,5 @@
+Source_to_Drain,DMG_RatioS,DMG_RatioD,GateS_Len_nm,GateD_Len_nm,DIBL_mV_per_V,SS_mV_per_dec,Ion_A_per_um,Ioff_A_per_um,Ion_Ioff,IgTotal_On_A_per_um,Interpretation
+6:4,0.6,0.4,16.2,10.8,19.47,86.03,0.00018474,2.026e-15,91183000000.0,2.8841e-10,Highest Ion; weaker off-state metrics
+5:5,0.5,0.5,13.5,13.5,22.35,84.85,0.00018421,4.2952e-16,428870000000.0,2.17e-10,Balanced reference condition
+4.5:5.5,0.45,0.55,12.15,14.85,2.57,84.44,0.00018388,2.8822e-16,638000000000.0,1.8267e-10,Very low DIBL treated as low-confidence outlier
+3.5:6.5,0.35,0.65,9.45,17.55,56.89,83.94,0.00018332,2.0792e-16,881680000000.0,1.1702e-10,Strongest drain suppression; DIBL worsens
