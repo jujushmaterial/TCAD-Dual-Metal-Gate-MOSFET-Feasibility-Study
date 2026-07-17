@@ -4,15 +4,19 @@
 
   const repositoryBase = '/TCAD-Dual-Metal-Gate-MOSFET-Feasibility-Study/';
 
+  // Normalize every repository figure path without depending on the current
+  // document depth. This covers Markdown-rendered relative paths as well as
+  // already-normalized browser paths.
   content.querySelectorAll('img').forEach((image) => {
     const source = image.getAttribute('src') || '';
-    const normalized = source
-      .replace(/^\.\.\/figures\//, 'figures/')
-      .replace(/^\.\/figures\//, 'figures/');
+    if (!source || /^(?:data:|https?:\/\/)/i.test(source)) return;
 
-    if (normalized.startsWith('figures/')) {
-      image.setAttribute('src', `${repositoryBase}${normalized}`);
-    }
+    const figureMarker = 'figures/';
+    const markerIndex = source.indexOf(figureMarker);
+    if (markerIndex < 0) return;
+
+    const figurePath = source.slice(markerIndex);
+    image.setAttribute('src', `${repositoryBase}${figurePath}`);
   });
 
   const redundantLabels = [
@@ -39,8 +43,15 @@
     if (parent && !parent.textContent.trim() && !parent.querySelector('*')) parent.remove();
   });
 
+  // Remove only genuinely empty paragraphs. Markdown wraps standalone images
+  // in <p> elements, so deleting every text-empty paragraph also deleted the
+  // research figures. Preserve paragraphs containing any meaningful element.
   [...content.querySelectorAll('p')].forEach((paragraph) => {
     const text = paragraph.textContent.replace(/[·|]/g, '').trim();
-    if (!text) paragraph.remove();
+    const hasMeaningfulElement = paragraph.querySelector(
+      'img, picture, figure, video, iframe, svg, canvas, pre, code, table, a, button'
+    );
+
+    if (!text && !hasMeaningfulElement) paragraph.remove();
   });
 })();
