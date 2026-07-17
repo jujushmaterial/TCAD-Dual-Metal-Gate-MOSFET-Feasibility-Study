@@ -52,7 +52,7 @@ title: TCAD Dual-Metal-Gate MOSFET Feasibility Study
 ## Physical Test Vehicle
 
 <div class="image-grid">
-<figure><img src="./figures/scaling/lg_0p028_final_structure.svg" alt="28 nm DMG structure"><figcaption>Lg = 0.028 µm DMG test structure.</figcaption></figure>
+<figure><img src="./figures/actual/lg_0p028_final_structure.png" alt="Actual Sentaurus 0.028 micrometer DMG structure"><figcaption>Sentaurus SVisual에서 확인한 Lg = 0.028 µm 실제 DMG 구조.</figcaption></figure>
 <figure><img src="./figures/scaling/scaling_ion_ioff_comparison.svg" alt="Scaling Ion/Ioff comparison"><figcaption>세 gate length의 Single–Dual 비교.</figcaption></figure>
 </div>
 
