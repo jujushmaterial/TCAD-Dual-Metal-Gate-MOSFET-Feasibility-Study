@@ -5,16 +5,19 @@ title: Reproducibility and Full TCAD Code
 
 # 12. Reproducibility and Full TCAD Code
 
-[← Navigation](./00_navigation.html) · [Source Index](../source/README.html) · [Raw Results](../results/README.html)
+- [Navigation](./00_navigation.html)
+- [Source code](../source/)
+- [Results](../results/)
+- [Current reproducibility guide](../appendix/reproducibility.html)
 
 ## Code Organization
 
 | Code Set | Purpose | Status |
 |---|---|---|
-| `source/coursework/` | 최초 DMG SProcess/SDevice/SVisual 구현 | Historical baseline |
-| `source/verified/sio2_ig_baseline/` | SiO₂ DMG + gate tunneling extraction | Verified successful run |
-| `source/verified/highk_eot1p6_gate_ratio/` | High-K, ratio parameterization, corrected Vtgm, CC-DIBL | Main conference code |
-| `source/extended/highk_eot_sweep/` | EOT 1.6/1.2/1.0 nm 확장 | Successful extension, not central conference result |
+| [Presentation-stage DMG code](https://github.com/jujushmaterial/TCAD-Dual-Metal-Gate-MOSFET-Feasibility-Study/tree/main/source/coursework) | 최초 DMG SProcess/SDevice/SVisual 구현 | Final presentation baseline |
+| [SiO₂ gate-leakage code](https://github.com/jujushmaterial/TCAD-Dual-Metal-Gate-MOSFET-Feasibility-Study/tree/main/source/verified/sio2_ig_baseline) | SiO₂ DMG + gate tunneling extraction | Verified successful run |
+| [High-K and gate-ratio code](https://github.com/jujushmaterial/TCAD-Dual-Metal-Gate-MOSFET-Feasibility-Study/tree/main/source/verified/highk_eot1p6_gate_ratio) | High-K, ratio parameterization, corrected Vtgm, CC-DIBL | Main verified code |
+| [Variable-EOT extension](https://github.com/jujushmaterial/TCAD-Dual-Metal-Gate-MOSFET-Feasibility-Study/tree/main/source/extended/highk_eot_sweep) | EOT 1.6/1.2/1.0 nm 확장 | Successful extension |
 
 ## Execution Order
 
@@ -30,6 +33,7 @@ Workbench parameters
 
 - `Lg`, `DMG_Gap`, `DMG_RatioS`
 - `NWell`
+- `GOxTime`
 - `LDD_Dose`, `LDD_E`
 - `SD_Dose`, `SD_E`
 - `Wf_S`, `Wf_D`
@@ -38,15 +42,15 @@ Workbench parameters
 
 ## Reproducibility Boundary
 
-공개된 command는 프로젝트에서 성공한 대표 세트의 전문입니다. 다만 실행에는 Sentaurus license, Workbench node 연결, parameter registration, input naming convention이 필요합니다. 결과의 absolute reproducibility는 tool version, material database, mesh, server environment에 영향을 받을 수 있습니다.
+공개된 command는 프로젝트에서 성공한 대표 세트의 전문입니다. 실행에는 Sentaurus license, Workbench node 연결, parameter registration과 input naming convention이 필요합니다. 결과의 absolute reproducibility는 tool version, material database, mesh와 server environment에 영향을 받을 수 있습니다.
 
 ## Data Files
 
-- `scaling_baseline.csv`
-- `scaling_selected_conditions.csv`
-- `sio2_gate_leakage.csv`
-- `high_k_comparison.csv`
-- `gate_ratio_tradeoff.csv`
+- [Scaling baseline](https://github.com/jujushmaterial/TCAD-Dual-Metal-Gate-MOSFET-Feasibility-Study/blob/main/results/scaling_baseline.csv)
+- [Scaling selected conditions](https://github.com/jujushmaterial/TCAD-Dual-Metal-Gate-MOSFET-Feasibility-Study/blob/main/results/scaling_selected_conditions.csv)
+- [SiO₂ gate leakage](https://github.com/jujushmaterial/TCAD-Dual-Metal-Gate-MOSFET-Feasibility-Study/blob/main/results/sio2_gate_leakage.csv)
+- [High-K comparison](https://github.com/jujushmaterial/TCAD-Dual-Metal-Gate-MOSFET-Feasibility-Study/blob/main/results/high_k_comparison.csv)
+- [Gate-ratio trade-off](https://github.com/jujushmaterial/TCAD-Dual-Metal-Gate-MOSFET-Feasibility-Study/blob/main/results/gate_ratio_tradeoff.csv)
 
 ## AI Assistance
 
