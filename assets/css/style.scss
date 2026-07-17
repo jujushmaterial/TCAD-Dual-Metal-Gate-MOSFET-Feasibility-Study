@@ -2,60 +2,162 @@
 ---
 @import "{{ site.theme }}";
 
-.page-header { padding: 2.2rem 1rem; }
-.main-content { max-width: 1080px; }
-.main-content img { max-width: 100%; height: auto; border-radius: 10px; box-shadow: 0 3px 16px rgba(0,0,0,.12); }
-.main-content h1 { line-height: 1.28; }
-.main-content h2 { margin-top: 2.8rem; padding-top: .4rem; }
-.main-content table { display: table; width: 100%; }
+/*
+ * Keep the Cayman layout only as a GitHub Pages build shell.
+ * The visible page follows the same plain Markdown-oriented style used by
+ * the rest of the portfolio: white background, neutral headings, blue links,
+ * no project banner, cards, gradients, or decorative shadows.
+ */
 
-.image-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 18px; margin: 18px 0 26px; align-items: start; }
-.image-grid figure { margin: 0; min-width: 0; }
-.image-grid figure img { width: 100%; }
-.image-grid figcaption, figure figcaption { font-size: .9rem; color: #586069; margin-top: 7px; line-height: 1.45; }
-.hero-grid { grid-template-columns: repeat(auto-fit, minmax(330px, 1fr)); }
-
-.metric-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px,1fr)); gap: 12px; margin: 18px 0 26px; }
-.metric-card { padding: 16px; border: 1px solid #d8dee4; border-radius: 10px; background: #f6f8fa; }
-.metric-card strong { display: block; font-size: 1.08rem; margin-bottom: 6px; }
-
-.callout { padding: 14px 16px; border-left: 5px solid #159957; background: #f3faf7; margin: 18px 0; }
-.warning { padding: 14px 16px; border-left: 5px solid #d29922; background: #fff8c5; margin: 18px 0; }
-
-.nav-links { display: flex; flex-wrap: wrap; gap: 8px; margin: 16px 0 24px; }
-.nav-links a { padding: 7px 11px; border: 1px solid #d0d7de; border-radius: 999px; text-decoration: none; }
-.primary-links a { padding: 10px 15px; font-weight: 700; }
-
-.flow-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; margin: 20px 0; }
-.flow-card { padding: 16px; border: 1px solid #d8dee4; border-radius: 12px; background: #fff; box-shadow: 0 2px 10px rgba(0,0,0,.05); }
-.flow-card span { display: inline-block; font-size: .8rem; font-weight: 700; color: #0969da; margin-bottom: 7px; }
-.flow-card strong { display: block; font-size: 1rem; line-height: 1.35; }
-.flow-card p { margin: 8px 0 0; font-size: .9rem; color: #57606a; line-height: 1.45; }
-
-.scale-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin: 20px 0 28px; }
-.scale-grid article { border: 1px solid #d8dee4; border-radius: 12px; padding: 14px; background: #fff; min-width: 0; }
-.scale-grid h3 { margin: 0 0 10px; font-size: 1.05rem; }
-.scale-grid img { width: 100%; aspect-ratio: 4 / 3; object-fit: contain; background: #fff; box-shadow: none; }
-.scale-grid p { margin: 10px 0 0; color: #57606a; font-size: .9rem; line-height: 1.45; }
-
-.resource-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px; margin: 18px 0 28px; }
-.resource-card { display: block; padding: 16px; border: 1px solid #d8dee4; border-radius: 12px; text-decoration: none; background: #f6f8fa; transition: transform .12s ease, box-shadow .12s ease; }
-.resource-card:hover { transform: translateY(-2px); box-shadow: 0 5px 16px rgba(0,0,0,.09); }
-.resource-card strong { display: block; margin-bottom: 5px; color: #0969da; }
-.resource-card span { color: #57606a; font-size: .9rem; line-height: 1.4; }
-
-@media (max-width: 760px) {
-  .main-content { font-size: 16px; }
-  .page-header { padding: 1.5rem .8rem; }
-  .main-content h1 { font-size: 1.75rem; }
-  .main-content h2 { font-size: 1.4rem; }
-  .image-grid, .hero-grid { grid-template-columns: 1fr; }
-  .scale-grid { grid-template-columns: 1fr; }
-  .main-content table { display: block; overflow-x: auto; white-space: nowrap; }
-  .primary-links a { flex: 1 1 44%; text-align: center; }
+.page-header {
+  display: none;
 }
 
-@media (max-width: 480px) {
-  .primary-links a { flex-basis: 100%; }
-  .flow-grid, .resource-grid { grid-template-columns: 1fr; }
+body {
+  background: #ffffff;
+  color: #24292f;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial,
+    sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+}
+
+.main-content {
+  max-width: 980px;
+  padding: 2rem 1.5rem 4rem;
+  font-size: 16px;
+  line-height: 1.65;
+}
+
+.main-content h1,
+.main-content h2,
+.main-content h3,
+.main-content h4 {
+  color: #24292f;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.main-content h1 {
+  margin-top: 0;
+  padding-bottom: 0.3em;
+  border-bottom: 1px solid #d0d7de;
+  font-size: 2rem;
+}
+
+.main-content h2 {
+  margin-top: 2.2rem;
+  padding-bottom: 0.3em;
+  border-bottom: 1px solid #d8dee4;
+  font-size: 1.5rem;
+}
+
+.main-content h3 {
+  margin-top: 1.7rem;
+  font-size: 1.22rem;
+}
+
+.main-content a {
+  color: #0969da;
+  text-decoration: none;
+}
+
+.main-content a:hover {
+  text-decoration: underline;
+}
+
+.main-content img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 1rem auto;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.main-content table {
+  display: table;
+  width: 100%;
+  margin: 1rem 0;
+}
+
+.main-content blockquote {
+  margin-left: 0;
+  padding: 0 1rem;
+  color: #57606a;
+  border-left: 0.25rem solid #d0d7de;
+}
+
+.main-content code {
+  color: #24292f;
+}
+
+/* Neutralize legacy helper classes without introducing a separate design. */
+.nav-links,
+.primary-links,
+.image-grid,
+.hero-grid,
+.flow-grid,
+.scale-grid,
+.resource-grid,
+.metric-grid {
+  display: block;
+  margin: 1rem 0;
+}
+
+.nav-links a,
+.primary-links a {
+  display: inline;
+  margin-right: 0.8rem;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  font-weight: 400;
+}
+
+.flow-card,
+.scale-grid article,
+.resource-card,
+.metric-card,
+.callout,
+.warning {
+  display: block;
+  margin: 1rem 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.image-grid figure,
+.hero-grid figure {
+  margin: 1.2rem 0;
+}
+
+.image-grid figcaption,
+figure figcaption {
+  margin-top: 0.4rem;
+  color: #57606a;
+  font-size: 0.9rem;
+  line-height: 1.45;
+}
+
+@media (max-width: 760px) {
+  .main-content {
+    padding: 1.4rem 1rem 3rem;
+    font-size: 15px;
+  }
+
+  .main-content h1 {
+    font-size: 1.7rem;
+  }
+
+  .main-content h2 {
+    font-size: 1.35rem;
+  }
+
+  .main-content table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
 }
