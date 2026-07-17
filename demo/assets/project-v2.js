@@ -21,11 +21,33 @@
       </dl>`;
   };
 
-  applyProjectSummary();
+  const applyResourceLabels = () => {
+    const labels = {
+      'Full Study': '연구 자세히 보기',
+      'Presentation': '최종 보고서',
+      'Source Code': 'TCAD 코드 확인',
+      'Results': '연구 진행 Data',
+      'Reproducibility': '연구 재현',
+      'References': '참고문헌'
+    };
+
+    document.querySelectorAll('.resource-list > a, .resource-list > button').forEach((item) => {
+      const title = item.querySelector('strong')?.textContent?.trim();
+      const description = item.querySelector('span');
+      if (title && description && labels[title]) description.textContent = labels[title];
+    });
+  };
+
+  const applyPageText = () => {
+    applyProjectSummary();
+    applyResourceLabels();
+  };
+
+  applyPageText();
 
   const coreScript = document.createElement('script');
   coreScript.src = 'https://cdn.jsdelivr.net/gh/jujushmaterial/TCAD-Dual-Metal-Gate-MOSFET-Feasibility-Study@4c8c3977ad33a185f524750635c4fce610bcc0cc/demo/assets/project-v2.js';
-  coreScript.onload = applyProjectSummary;
+  coreScript.onload = applyPageText;
   coreScript.onerror = () => {
     console.error('프로젝트 페이지 핵심 스크립트를 불러오지 못했습니다.');
   };
