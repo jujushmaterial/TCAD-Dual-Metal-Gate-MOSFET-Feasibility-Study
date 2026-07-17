@@ -10,6 +10,7 @@
   <link href="https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css">
   <link rel="stylesheet" href="{{ '/assets/css/document-v2.css?v=' | append: site.github.build_revision | relative_url }}">
+  <link rel="stylesheet" href="{{ '/assets/css/code-viewer.css?v=' | append: site.github.build_revision | relative_url }}">
 </head>
 <body class="document-page">
   <header class="document-header">
@@ -43,5 +44,30 @@
     <a href="{{ '/' | relative_url }}">Project Home</a>
     <span>Sanghyeon Ju © 2026</span>
   </footer>
+
+  <div class="floating-code-modal" id="floating-code-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="floating-code-title">
+    <div class="floating-code-backdrop" data-floating-code-close></div>
+    <div class="floating-code-window">
+      <div class="floating-code-titlebar">
+        <strong id="floating-code-title">TCAD Source Code</strong>
+        <button class="floating-code-close" type="button" data-floating-code-close aria-label="Close code viewer">×</button>
+      </div>
+      <div class="floating-code-toolbar">
+        <span class="floating-code-file" id="floating-code-file">source file</span>
+        <div class="floating-code-actions">
+          <button type="button" id="floating-code-line" title="Go to line (Ctrl+G)">Line</button>
+          <button type="button" id="floating-code-copy">Copy</button>
+          <a id="floating-code-github" href="https://github.com/jujushmaterial/TCAD-Dual-Metal-Gate-MOSFET-Feasibility-Study" target="_blank" rel="noopener">GitHub</a>
+        </div>
+      </div>
+      <div class="floating-editor-shell">
+        <pre class="floating-code-lines" id="floating-code-lines" aria-hidden="true"></pre>
+        <pre class="floating-code-scroll" id="floating-code-scroll" tabindex="0"><code id="floating-code-content"></code></pre>
+        <div class="floating-code-minimap" id="floating-code-minimap" aria-label="Code minimap"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="{{ '/assets/js/code-viewer.js?v=' | append: site.github.build_revision | relative_url }}"></script>
 </body>
 </html>
