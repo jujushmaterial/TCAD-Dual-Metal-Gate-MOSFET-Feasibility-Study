@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TCAD Dual-Metal-Gate MOSFET Feasibility Study</title>
+  <meta name="description" content="Dual-Metal Gate를 이용한 미세 MOSFET의 SCE 및 Leakage Current 개선 효과 분석">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css">
+  <link rel="stylesheet" href="demo/assets/project-v2.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="site-name" href="https://jujushmaterial.github.io/">Sanghyeon Ju</a>
+      <nav class="site-nav" aria-label="Portfolio navigation">
+        <a href="https://jujushmaterial.github.io/">HOME</a>
+        <a href="https://jujushmaterial.github.io/projects.html">PROJECTS</a>
+        <a href="https://github.com/jujushmaterial/TCAD-Dual-Metal-Gate-MOSFET-Feasibility-Study">GITHUB</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="project-hero">
+      <div class="project-hero__inner">
+        <p class="eyebrow">TCAD · Semiconductor Device</p>
+        <h1>Dual-Metal Gate를 이용한 미세 MOSFET의<br>SCE 및 Leakage Current 개선 효과 분석</h1>
+        <p class="hero-summary">
+          2D planar MOSFET에서 source–drain 방향의 Work-Function Split을 구현하고,
+          scaling, 공정조건 screening, gate leakage, High-K gate stack과
+          GateS/GateD 비율 변화의 trade-off를 검토한 Sentaurus TCAD 연구입니다.
+        </p>
+
+        <div class="project-meta" aria-label="Project metadata">
+          <div><span>Period</span><strong>2026.03–2026.07</strong></div>
+          <div><span>Status</span><strong class="status"><i></i>Conference Presented</strong></div>
+          <div><span>Tools</span><strong>Sentaurus Workbench · SProcess · SDevice · SVisual</strong></div>
+        </div>
+
+        <div class="hero-actions">
+          <a class="button button--dark" href="#overview">연구 내용 읽기</a>
+          <a class="button" href="./presentation/final_conference_presentation.pdf">발표자료</a>
+          <button class="button" id="open-code" type="button">코드 보기</button>
+          <a class="button" href="./results/">결과 데이터</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="hero-visual" aria-label="Project visual summary">
+      <div class="hero-visual__image">
+        <img src="./figures/actual/scaling/lg_0p10_gate_cap_removed.png" alt="Lg 0.10 micrometer Dual-Metal-Gate MOSFET structure">
+      </div>
+      <div class="hero-visual__summary">
+        <h2>프로젝트 요약</h2>
+        <dl>
+          <div>
+            <dt>개요</dt>
+            <dd>기존 Single-Metal Gate를 source 측 low-WF GateS와 drain 측 high-WF GateD로 분리해 물리적 성능을 비교 검증한 실험</dd>
+          </div>
+          <div>
+            <dt>목적</dt>
+            <dd>실제 공정 Process 연구에 앞서 Dual-Metal Gate의 물리적 우수성과 source·drain 역할 분리 가능성을 TCAD로 확인</dd>
+          </div>
+          <div>
+            <dt>결과</dt>
+            <dd>세 gate length에서 Ioff 감소와 Ion/Ioff 증가 방향을 반복 확인하고, High-K 적용 시 동일 EOT에서 IgTotal 약 99.40% 감소</dd>
+          </div>
+        </dl>
+      </div>
+    </section>
+
+    <div class="project-layout">
+      <aside class="toc" aria-label="Page contents">
+        <p>Contents</p>
+        <a href="#overview">Overview</a>
+        <a href="#question">Research Question</a>
+        <a href="#implementation">Implementation</a>
+        <a href="#scaling">Scaling & Screening</a>
+        <a href="#leakage">Leakage & High-K</a>
+        <a href="#ratio">Gate Ratio</a>
+        <a href="#conclusion">Conclusion</a>
+        <a href="#resources">Resources</a>
+      </aside>
+
+      <article class="project-article">
+        <section id="overview">
+          <p class="section-label">01 · OVERVIEW</p>
+          <h2>프로젝트 개요</h2>
+          <p>
+            본 연구는 source 측에 낮은 work function을, drain 측에 높은 work function을 적용한
+            lateral Dual-Metal Gate 구조가 미세 MOSFET의 short-channel effect와 leakage에 미치는
+            상대적 영향을 확인한 feasibility study입니다.
+          </p>
+          <p>
+            생산 가능한 절대 최적 공정을 주장하기보다, 세 gate length에서 같은 방향의 효과가
+            반복되는지 검증하고 공정 조건, gate leakage, High-K stack과 gate-ratio 변화까지
+            단계적으로 확장했습니다.
+          </p>
+          <blockquote>
+            This conference-presented study examines lateral work-function splitting in a 2D Sentaurus TCAD
+            test vehicle and follows the research process from scaling and parameter screening to
+            gate-leakage mitigation and gate-ratio analysis.
+          </blockquote>
+        </section>
+
+        <section id="question">
+          <p class="section-label">02 · RESEARCH QUESTION</p>
+          <h2>연구 질문과 가설</h2>
+          <p>
+            Source-side low-WF gate는 carrier injection을 유지하고, drain-side high-WF gate는
+            drain field penetration과 barrier lowering을 억제하는 역할을 분리할 수 있는지 확인했습니다.
+          </p>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Gate region</th><th>Work function</th><th>Intended role</th></tr></thead>
+              <tbody>
+                <tr><td>GateS · source side</td><td>4.2 eV</td><td>Ion 손실 제한</td></tr>
+                <tr><td>GateD · drain side</td><td>4.8 eV</td><td>Drain-side barrier lowering 억제</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <figure>
+            <img src="./figures/presentation/slide_09_dmg_solution.png" alt="Single-Metal Gate and Dual-Metal Gate comparison">
+            <figcaption>최종 발표에서 사용한 Single-Metal Gate와 Dual-Metal Gate 비교.</figcaption>
+          </figure>
+        </section>
+
+        <section id="implementation">
+          <p class="section-label">03 · IMPLEMENTATION</p>
+          <h2>TCAD 공정 구현</h2>
+          <p>
+            SProcess에서 GateS와 GateD를 서로 다른 material region으로 형성하고, 두 gate 사이에
+            작은 DMG gap을 두었습니다. Implant 중 gap을 통한 dopant 침투를 줄이기 위해 temporary
+            nitride cap을 적용한 뒤 Source/Drain implant와 anneal 후 제거했습니다.
+          </p>
+          <figure class="figure-wide">
+            <img src="./figures/actual/process/dmg_sprocess_montage_lg_0p25.png" alt="DMG SProcess montage">
+            <figcaption>실제 SProcess checkpoint를 연결한 공정 흐름.</figcaption>
+          </figure>
+          <p>
+            SDevice에서는 두 gate에 독립적인 work function을 지정하고 같은 gate voltage로 동시에
+            sweep했습니다. SVisual에서는 Vth, SS, gm, Ion, Ioff, Ion/Ioff와 DIBL을 자동 추출했습니다.
+          </p>
+          <button class="text-action" type="button" data-open-code="sprocess">SProcess 코드 바로 보기 →</button>
+        </section>
+
+        <section id="scaling">
+          <p class="section-label">04 · SCALING & SCREENING</p>
+          <h2>세 gate length의 검증과 조건 선정</h2>
+          <p>
+            각 scale에서 NWell, LDD dose/energy, Source/Drain dose/energy를 screening하고,
+            Ion/Ioff–DIBL 분포와 SS·Ion을 함께 비교해 representative condition을 선정했습니다.
+          </p>
+          <div class="scale-grid">
+            <figure>
+              <img src="./figures/actual/scaling/lg_0p25_gate_cap_removed.png" alt="Lg 0.25 micrometer structure">
+              <figcaption><strong>Lg = 0.25 μm</strong><br>첫 효과 검증과 screening 방식 수립.</figcaption>
+            </figure>
+            <figure>
+              <img src="./figures/actual/scaling/lg_0p10_gate_cap_removed.png" alt="Lg 0.10 micrometer structure">
+              <figcaption><strong>Lg = 0.10 μm</strong><br>미세화 후 동일 방향 재검증.</figcaption>
+            </figure>
+            <figure>
+              <img src="./figures/actual/scaling/lg_0p028_gate_cap_removed.png" alt="Lg 0.028 micrometer structure">
+              <figcaption><strong>Lg = 0.028 μm</strong><br>구조 안정성 후 미세화 적용성 확인.</figcaption>
+            </figure>
+          </div>
+          <div class="result-strip">
+            <div><span>Ion</span><strong>소폭 감소</strong></div>
+            <div><span>Ioff</span><strong>큰 폭 감소</strong></div>
+            <div><span>Ion/Ioff</span><strong>큰 폭 증가</strong></div>
+            <div><span>DIBL</span><strong>감소 방향 · 추출법 민감</strong></div>
+          </div>
+          <figure>
+            <img src="./figures/presentation/slide_16_scaling_result_and_reliability.png" alt="Scaling results and DIBL reliability">
+            <figcaption>세 gate length 결과와 DIBL 신뢰성 검토.</figcaption>
+          </figure>
+          <p class="note">
+            이 과정은 절대 최적화를 주장하는 작업이 아니라 여러 scale에서 DMG의 상대적 물리 효과를
+            확인하기 위한 parameter screening and comparative optimization입니다.
+          </p>
+        </section>
+
+        <section id="leakage">
+          <p class="section-label">05 · LEAKAGE & HIGH-K</p>
+          <h2>Gate leakage 문제와 High-K 개선</h2>
+          <p>
+            Lg = 0.028 μm에서 약 1.6 nm SiO₂를 사용할 경우 drain-current 기반 Ioff가 감소하더라도
+            on-state gate tunneling이 남는 것을 확인했습니다. 동일 EOT를 유지하면서 물리 두께를
+            늘리기 위해 SiO₂ interfacial layer/HfO₂ stack을 적용했습니다.
+          </p>
+          <div class="image-pair">
+            <figure>
+              <img src="./figures/presentation/slide_17_gate_leakage_problem.png" alt="Thin SiO2 gate leakage problem">
+              <figcaption>Thin-SiO₂ gate leakage 문제.</figcaption>
+            </figure>
+            <figure>
+              <img src="./figures/presentation/slide_19_highk_leakage_result.png" alt="High-K leakage result">
+              <figcaption>High-K 적용 전후 gate leakage 비교.</figcaption>
+            </figure>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Stack</th><th>EOT</th><th>Physical thickness</th><th>IgTotal On · High-Vd</th></tr></thead>
+              <tbody>
+                <tr><td>SiO₂</td><td>1.6 nm</td><td>1.6 nm</td><td>1.8897e-9 A/μm</td></tr>
+                <tr><td>SiO₂ IL/HfO₂</td><td>1.5998 nm</td><td>6.14 nm</td><td>1.135e-11 A/μm</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p>
+            대표 High-Vd 조건에서 IgTotal_On은 약 <strong>99.40% 감소</strong>했습니다. 이 수치는
+            calibrated absolute prediction이 아니라 동일 simulation framework 안에서 비교한
+            first-pass relative result입니다.
+          </p>
+        </section>
+
+        <section id="ratio">
+          <p class="section-label">06 · GATE RATIO</p>
+          <h2>GateS/GateD 비율 변화</h2>
+          <p>
+            총 gate region을 유지하면서 GateS:GateD를 6:4, 5:5, 4.5:5.5, 3.5:6.5로 변경했습니다.
+            Drain-side high-WF 영역이 커질수록 Ioff, gate current와 SS는 개선되는 방향을 보였지만,
+            GateS가 짧아지면서 Ion이 소폭 감소했고 DIBL은 비단조적으로 변했습니다.
+          </p>
+          <div class="image-pair">
+            <figure>
+              <img src="./figures/presentation/slide_20_gate_ratio_design.png" alt="Gate ratio experiment design">
+              <figcaption>GateS/GateD 비율 변화 실험 설계.</figcaption>
+            </figure>
+            <figure>
+              <img src="./figures/presentation/slide_23_gate_ratio_interpretation.png" alt="Gate ratio interpretation">
+              <figcaption>Gate-ratio 결과 해석.</figcaption>
+            </figure>
+          </div>
+          <p class="note">
+            5:5는 모든 지표의 절대 최적점이 아니라 Ion 손실과 drain-side suppression을 함께 고려한
+            balanced reference condition입니다. 4.5:5.5의 매우 낮은 DIBL은 low-confidence data로 분류했습니다.
+          </p>
+        </section>
+
+        <section id="conclusion">
+          <p class="section-label">07 · CONCLUSION</p>
+          <h2>핵심 결론과 연구 범위</h2>
+          <ol class="conclusion-list">
+            <li>Source-side low WF와 drain-side high WF의 역할 분리 가능성을 확인했습니다.</li>
+            <li>세 gate length에서 Ion 일부 손실과 함께 Ioff와 Ion/Ioff가 개선되는 방향을 반복 확인했습니다.</li>
+            <li>DIBL 특이값을 발견하고 SS, Ion, Ioff, Ion/Ioff를 함께 고려하는 신뢰성 정책을 도입했습니다.</li>
+            <li>Thin-SiO₂ gate leakage를 추가 문제로 확인하고 High-K stack의 완화 가능성을 검토했습니다.</li>
+            <li>Gate ratio는 하나의 절대 최적값이 아니라 source injection과 drain suppression의 trade-off 변수입니다.</li>
+          </ol>
+          <blockquote class="scope">
+            본 결과는 2D planar TCAD test vehicle의 상대 비교입니다. 실제 GAA·CFET의 dual-WFM deposition,
+            etch-back, alignment, metal filling과 variability를 실증한 결과가 아닙니다.
+          </blockquote>
+        </section>
+
+        <section id="resources">
+          <p class="section-label">08 · RESOURCES</p>
+          <h2>자료와 코드</h2>
+          <div class="resource-list">
+            <a href="./study/"><strong>Full Study</strong><span>발표 흐름으로 전체 연구 읽기</span></a>
+            <a href="./presentation/"><strong>Presentation</strong><span>최종 PDF와 PPTX</span></a>
+            <button type="button" data-open-code="sprocess"><strong>Source Code</strong><span>현재 화면에서 코드 보기</span></button>
+            <a href="./results/"><strong>Results</strong><span>CSV와 데이터 단계</span></a>
+            <a href="./appendix/reproducibility.html"><strong>Reproducibility</strong><span>실행 순서와 코드 매핑</span></a>
+            <a href="./references/"><strong>References</strong><span>논문과 기술 자료</span></a>
+          </div>
+        </section>
+      </article>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <a href="https://jujushmaterial.github.io/">← Portfolio Home</a>
+    <span>Sanghyeon Ju © 2026</span>
+  </footer>
+
+  <div class="code-modal" id="code-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="code-modal-title">
+    <div class="code-backdrop" data-close-code></div>
+    <div class="code-window">
+      <div class="code-titlebar">
+        <strong id="code-modal-title">TCAD Source Code</strong>
+        <button type="button" class="code-close" data-close-code aria-label="Close code viewer">×</button>
+      </div>
+      <div class="code-tabs" role="tablist">
+        <button type="button" class="is-active" data-code-tab="sprocess">SProcess</button>
+        <button type="button" data-code-tab="sdevice">SDevice</button>
+        <button type="button" data-code-tab="svisual">SVisual</button>
+      </div>
+      <div class="code-toolbar">
+        <span id="code-file-name">sprocess_lg0p1_initial.cmd</span>
+        <div>
+          <button type="button" id="copy-code">Copy</button>
+          <a id="github-code" href="https://github.com/jujushmaterial/TCAD-Dual-Metal-Gate-MOSFET-Feasibility-Study/blob/main/source/coursework/sprocess_lg0p1_initial.cmd" target="_blank" rel="noopener">GitHub</a>
+        </div>
+      </div>
+      <div class="editor-shell">
+        <pre class="code-lines" id="code-lines" aria-hidden="true"></pre>
+        <pre class="code-content"><code id="code-content"></code></pre>
+        <div class="code-minimap" id="code-minimap" aria-hidden="true"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="demo/assets/project-v2.js"></script>
+</body>
+</html>
