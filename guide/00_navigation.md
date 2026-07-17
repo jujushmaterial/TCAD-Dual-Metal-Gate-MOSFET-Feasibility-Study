@@ -5,33 +5,20 @@ title: Research Navigation
 
 # Research Navigation
 
-<div class="callout">
-<strong>새 포트폴리오 구조가 적용되었습니다.</strong><br>
-최종 학회 발표 순서로 연구 전체를 읽으려면 아래의 Full Study를 이용하세요. 기존 01~12 guide는 과거 세부 문서 링크의 호환성을 위해 보존합니다.
-</div>
+최종 학회 발표 순서로 연구 전체를 읽으려면 [발표 흐름으로 읽는 전체 연구](../study/)를 이용하세요. 기존 01~12 guide는 과거 세부 문서 링크와 주제별 접근을 위해 보존합니다.
 
-<div class="nav-links primary-links">
-<a href="../study/index.html">Full Study</a>
-<a href="../presentation/README.html">Final Presentation</a>
-<a href="../appendix/optimization_details.html">Optimization Details</a>
-<a href="../appendix/data_lineage_and_reliability.html">Data & Reliability</a>
-<a href="../appendix/reproducibility.html">Full TCAD Source</a>
-<a href="../index.html">Project Page</a>
-</div>
-
-## Primary structure
+## Primary pages
 
 | Page | Purpose |
 |---|---|
-| [Full Study](../study/index.html) | 최종 PPT 2~24장의 흐름으로 읽는 전체 연구 |
+| [Full Study](../study/) | 최종 PPT 2~24장의 흐름으로 읽는 전체 연구 |
 | [Optimization Details](../appendix/optimization_details.html) | 0.25/0.10/0.028 μm parameter screening과 선정 과정 |
 | [Data Lineage and Reliability](../appendix/data_lineage_and_reliability.html) | scaling·leakage·High-K·ratio 데이터 단계와 DIBL 신뢰성 |
 | [Reproducibility](../appendix/reproducibility.html) | 코드 세트, 실행 순서와 재현 범위 |
-| [Final Presentation](../presentation/README.html) | PDF·PPTX 최종 학회 발표자료 |
+| [Final Presentation](../presentation/) | PDF·PPTX 최종 학회 발표자료 |
+| [Project Page](../) | 프로젝트 첫 페이지 |
 
 ## Legacy detailed guides
-
-아래 문서는 기존 외부 링크와 세부 주제별 접근을 위해 유지합니다. 새로운 primary narrative는 위의 Full Study입니다.
 
 | No. | Document | Topic |
 |---:|---|---|
@@ -50,6 +37,7 @@ title: Research Navigation
 
 ## Direct resources
 
-- [Source index](../source/index.html)
-- [Results index](../results/index.html)
-- [References](../references/bibliography.html)
+- [Source code](../source/)
+- [Results](../results/)
+- [References](../references/)
+- [Final presentation](../presentation/)
