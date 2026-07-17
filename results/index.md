@@ -5,20 +5,20 @@ title: Results and Data
 
 # Results and Data
 
-<div class="nav-links">
-<a href="../appendix/data_lineage_and_reliability.html">Data Lineage & Reliability</a>
-<a href="../appendix/optimization_details.html">Optimization Details</a>
-<a href="../study/index.html">Full Study</a>
-<a href="../index.html">Project Page</a>
-</div>
+- [프로젝트 첫 페이지](../)
+- [발표 흐름으로 정리한 전체 연구](../study/)
+- [데이터 단계와 DIBL 신뢰성](../appendix/data_lineage_and_reliability.html)
+- [최적화 과정 상세](../appendix/optimization_details.html)
+
+결과 파일은 연구 단계가 서로 섞이지 않도록 분리했습니다.
 
 | File | Stage | Description |
 |---|---|---|
-| [Scaling baseline](./scaling_baseline.csv) | A | 0.25/0.10/0.028 μm Single–Dual baseline |
-| [Selected conditions](./scaling_selected_conditions.csv) | B | Scale별 parameter-screening selected conditions |
-| [SiO₂ gate leakage](./sio2_gate_leakage.csv) | C | Leakage-follow-up Id/Ig data |
-| [High-K comparison](./high_k_comparison.csv) | D | Same-EOT SiO₂ and SiO₂ IL/HfO₂ comparison |
-| [Gate-ratio trade-off](./gate_ratio_tradeoff.csv) | E | 6:4–3.5:6.5 ratio raw data |
+| [Scaling baseline CSV](https://github.com/jujushmaterial/TCAD-Dual-Metal-Gate-MOSFET-Feasibility-Study/blob/main/results/scaling_baseline.csv) | A | 0.25/0.10/0.028 μm Single–Dual baseline |
+| [Selected conditions CSV](https://github.com/jujushmaterial/TCAD-Dual-Metal-Gate-MOSFET-Feasibility-Study/blob/main/results/scaling_selected_conditions.csv) | B | Scale별 parameter-screening selected conditions |
+| [SiO₂ gate leakage CSV](https://github.com/jujushmaterial/TCAD-Dual-Metal-Gate-MOSFET-Feasibility-Study/blob/main/results/sio2_gate_leakage.csv) | C | Leakage-follow-up Id/Ig data |
+| [High-K comparison CSV](https://github.com/jujushmaterial/TCAD-Dual-Metal-Gate-MOSFET-Feasibility-Study/blob/main/results/high_k_comparison.csv) | D | Same-EOT SiO₂ and SiO₂ IL/HfO₂ comparison |
+| [Gate-ratio trade-off CSV](https://github.com/jujushmaterial/TCAD-Dual-Metal-Gate-MOSFET-Feasibility-Study/blob/main/results/gate_ratio_tradeoff.csv) | E | 6:4–3.5:6.5 ratio raw data |
 
 ## Data policy
 
