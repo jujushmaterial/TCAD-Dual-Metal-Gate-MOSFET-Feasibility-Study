@@ -1,0 +1,29 @@
+#-----------------------------------------------------------------------
+# sdevice.par: High-K variable-EOT Dual-Metal Gate MOSFET
+# First-pass trend comparison, not calibrated absolute leakage fitting.
+#-----------------------------------------------------------------------
+
+BarrierTunneling "NLM_gateS" {
+  mt = 1.0, 1.0
+  g  = 1.0, 1.0
+}
+
+BarrierTunneling "NLM_gateD" {
+  mt = 1.0, 1.0
+  g  = 1.0, 1.0
+}
+
+Material = "Silicon" {
+  BarrierTunneling "NLM_gateS" { mt = 1.0, 1.0  g = 1.0, 1.0 }
+  BarrierTunneling "NLM_gateD" { mt = 1.0, 1.0  g = 1.0, 1.0 }
+}
+
+Material = "Oxide" {
+  BarrierTunneling "NLM_gateS" { mt = 0.42, 1.0  g = 1.0, 1.0 }
+  BarrierTunneling "NLM_gateD" { mt = 0.42, 1.0  g = 1.0, 1.0 }
+}
+
+Material = "HfO2" {
+  BarrierTunneling "NLM_gateS" { mt = 0.11, 1.0  g = 1.0, 1.0 }
+  BarrierTunneling "NLM_gateD" { mt = 0.11, 1.0  g = 1.0, 1.0 }
+}
