@@ -1,0 +1,44 @@
+# sdevice.par
+# Purpose:
+#   Parameter file for Ig tunneling simulation.
+#   This file provides nonzero effective tunneling masses for Oxide_1
+#   when using eBarrierTunneling/hBarrierTunneling with nonlocal meshes.
+#
+# Usage in Sentaurus Workbench:
+#   Register this file as the SDevice parameter file named sdevice.par.
+#   In the SDevice command file, use:
+#      Parameter = "@parameter@"
+
+BarrierTunneling "NLM_gateS" {
+  mt = 1.0, 1.0
+  g  = 1.0, 1.0
+}
+
+BarrierTunneling "NLM_gateD" {
+  mt = 1.0, 1.0
+  g  = 1.0, 1.0
+}
+
+Material = "Silicon" {
+  BarrierTunneling "NLM_gateS" {
+    mt = 1.0, 1.0
+    g  = 1.0, 1.0
+  }
+
+  BarrierTunneling "NLM_gateD" {
+    mt = 1.0, 1.0
+    g  = 1.0, 1.0
+  }
+}
+
+Material = "Oxide" {
+  BarrierTunneling "NLM_gateS" {
+    mt = 0.42, 1.0
+    g  = 1.0, 1.0
+  }
+
+  BarrierTunneling "NLM_gateD" {
+    mt = 0.42, 1.0
+    g  = 1.0, 1.0
+  }
+}
