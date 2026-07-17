@@ -14,7 +14,7 @@ title: TCAD Dual-Metal-Gate MOSFET Feasibility Study
 <div class="nav-links">
 <a href="./guide/00_navigation.html">Detailed Research</a>
 <a href="./guide/12_reproducibility_and_code.html">Full TCAD Code</a>
-<a href="./results/README.html">Raw Results</a>
+<a href="./results/">Raw Results</a>
 <a href="./presentation/conference_presentation_outline.html">Conference Outline</a>
 <a href="./references/bibliography.html">References</a>
 </div>
