@@ -1,3 +1,8 @@
+---
+layout: default
+title: Literature Review and Research Role
+---
+
 # Literature Review and Research Role
 
 논문 원문을 저장소에 무단 재배포하지 않고 DOI/공식 출판사 페이지로 연결합니다.
