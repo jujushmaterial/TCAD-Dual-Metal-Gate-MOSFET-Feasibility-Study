@@ -3,3 +3,5 @@ description: Physical verification of source–drain work-function split, high-k
 theme: jekyll-theme-cayman
 show_downloads: false
 lang: ko-KR
+exclude:
+  - index.md
