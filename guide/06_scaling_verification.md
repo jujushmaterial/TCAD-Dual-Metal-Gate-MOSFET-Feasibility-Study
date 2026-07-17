@@ -12,9 +12,9 @@ title: Scaling Verification
 DMG 효과가 하나의 geometry에만 나타나는지 확인하기 위해 Lg = 0.25, 0.10, 0.028 µm에서 Single-Metal Gate와 Dual-Metal Gate를 비교했습니다.
 
 <div class="image-grid">
-<figure><img src="../figures/scaling/lg_0p25_final_structure.svg" alt="Lg 0.25 structure"><figcaption>Lg = 0.25 µm.</figcaption></figure>
-<figure><img src="../figures/scaling/lg_0p10_final_structure.svg" alt="Lg 0.10 structure"><figcaption>Lg = 0.10 µm.</figcaption></figure>
-<figure><img src="../figures/scaling/lg_0p028_final_structure.svg" alt="Lg 0.028 structure"><figcaption>Lg = 0.028 µm.</figcaption></figure>
+<figure><img src="../figures/scaling/lg_0p25_final_structure.svg" alt="Lg 0.25 structure"><figcaption>Lg = 0.25 µm 구조 요약도.</figcaption></figure>
+<figure><img src="../figures/scaling/lg_0p10_final_structure.svg" alt="Lg 0.10 structure"><figcaption>Lg = 0.10 µm 구조 요약도.</figcaption></figure>
+<figure><img src="../figures/actual/lg_0p028_final_structure.png" alt="Actual Sentaurus Lg 0.028 structure"><figcaption>Sentaurus SVisual에서 확인한 Lg = 0.028 µm 실제 구조.</figcaption></figure>
 </div>
 
 ## Baseline Comparison
