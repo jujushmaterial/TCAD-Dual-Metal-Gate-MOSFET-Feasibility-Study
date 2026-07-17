@@ -2,6 +2,19 @@
   const content = document.querySelector('.document-content');
   if (!content) return;
 
+  const repositoryBase = '/TCAD-Dual-Metal-Gate-MOSFET-Feasibility-Study/';
+
+  content.querySelectorAll('img').forEach((image) => {
+    const source = image.getAttribute('src') || '';
+    const normalized = source
+      .replace(/^\.\.\/figures\//, 'figures/')
+      .replace(/^\.\/figures\//, 'figures/');
+
+    if (normalized.startsWith('figures/')) {
+      image.setAttribute('src', `${repositoryBase}${normalized}`);
+    }
+  });
+
   const redundantLabels = [
     '프로젝트 첫 페이지',
     '발표 흐름으로 정리한 전체 연구',
