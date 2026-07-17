@@ -5,7 +5,9 @@ title: High-K Gate Stack
 
 # 09. High-K Gate Stack
 
-[← Navigation](./00_navigation.html) · [High-K CSV](../results/high_k_comparison.csv) · [Verified Code](../source/verified/highk_eot1p6_gate_ratio/README.html)
+- [Navigation](./00_navigation.html)
+- [High-K CSV](https://github.com/jujushmaterial/TCAD-Dual-Metal-Gate-MOSFET-Feasibility-Study/blob/main/results/high_k_comparison.csv)
+- [Verified High-K code](https://github.com/jujushmaterial/TCAD-Dual-Metal-Gate-MOSFET-Feasibility-Study/tree/main/source/verified/highk_eot1p6_gate_ratio)
 
 ## Design Objective
 
@@ -28,10 +30,9 @@ EOT = T_IL + T_HK × k_SiO2 / k_HfO2
 
 총 physical thickness는 6.14 nm로, 기존 1.6 nm SiO₂보다 약 3.84배 두꺼워졌습니다.
 
-<div class="image-grid">
-<figure><img src="../figures/high_k/highk_physical_thickness.svg" alt="Physical thickness comparison"><figcaption>동일 EOT에서 물리 두께 증가.</figcaption></figure>
-<figure><img src="../figures/high_k/highk_final_structure.svg" alt="High-k final structure"><figcaption>SiO₂ IL/HfO₂/DMG 최종 구조.</figcaption></figure>
-</div>
+![Physical thickness comparison](../figures/high_k/highk_physical_thickness.svg)
+
+![SiO₂ IL/HfO₂/DMG final structure](../figures/high_k/highk_final_structure.svg)
 
 ## Gate Leakage Result
 
@@ -40,10 +41,9 @@ EOT = T_IL + T_HK × k_SiO2 / k_HfO2
 | Low-Vd | 3.7051e-9 | 2.1700e-10 | 94.14% |
 | High-Vd | 1.8897e-9 | 1.1350e-11 | 99.40% |
 
-<div class="image-grid">
-<figure><img src="../figures/high_k/highk_gate_leakage_curve.svg" alt="High-k gate leakage curve"><figcaption>High-K structure의 gate-current curve.</figcaption></figure>
-<figure><img src="../figures/high_k/highk_ig_comparison.svg" alt="Ig comparison"><figcaption>대표 조건에서의 SiO₂–High-K Ig 비교.</figcaption></figure>
-</div>
+![High-K gate-current curve](../figures/high_k/highk_gate_leakage_curve.svg)
+
+![SiO₂ and High-K Ig comparison](../figures/high_k/highk_ig_comparison.svg)
 
 ## Interpretation Limit
 
