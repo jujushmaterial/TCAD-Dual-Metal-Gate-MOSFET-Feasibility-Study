@@ -1,0 +1,3 @@
+Stack,Wf_S_eV,Wf_D_eV,EOT_nm,Physical_Thickness_nm,DIBL_mV_per_V,SS_mV_per_dec,Ion_A_per_um,Ioff_A_per_um,IgTotal_On_Low,IgTotal_On_High
+SiO2,4.2,4.8,1.6,1.6,37.65,85.42,0.000205,2.9e-16,3.7051e-09,1.8897e-09
+SiO2_IL_HfO2,4.2,4.8,1.5998,6.14,22.47,84.85,0.00018418,4.2916e-16,2.17e-10,1.135e-11
